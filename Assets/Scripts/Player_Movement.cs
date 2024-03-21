@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 public class Player_Movement : MonoBehaviour
 {
 
-    public int baseMoveSpeed;
-    public int dashCoef;
+    public Rigidbody2D rb;
 
-    private int moveSpeed;
+    public float baseMoveSpeed;
+    public GameObject beacon;
+
+    public float horizontalMovement;
+    public float verticalMovement;    
+
+    private float moveSpeed;
     private bool dashing = false;
     private bool canDash = true;
     private float timerDash = 0;
@@ -23,8 +28,16 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
 
-        float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        float verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
+
+        Vector2 target = new(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
+        beacon.transform.position = target;
+
+        Debug.Log(target);
+
+        Vector2 lookAngle = beacon.transform.position - transform.position;
+        transform.right = lookAngle;
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
@@ -35,13 +48,7 @@ public class Player_Movement : MonoBehaviour
         {
             timerDashOn = true;
             dashing = false;
-            for( float i = 0; i <= 0.2f; i += Time.deltaTime)
-            {
-                Vector2 dash = new(horizontalMovement * dashCoef, verticalMovement * dashCoef);
-                transform.Translate(dash);
-            }
         }
-
 
         if (timerDashOn)
         {
@@ -55,23 +62,18 @@ public class Player_Movement : MonoBehaviour
                 timerDash = 0f;
             }
         }
-        else
-        {
-            moveSpeed = baseMoveSpeed;
-        }
 
         if (!dashing)
         {
-            MovePlayer(horizontalMovement, verticalMovement);
+            MovePlayer();
         }
     }
 
-    void MovePlayer(float horizontalMovement, float verticalMovement)
+    void MovePlayer()
     {
-        Vector2 dir = new(horizontalMovement, verticalMovement);
-        transform.Translate(dir);
-
-        Debug.Log(dir);
+        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * moveSpeed * Time.fixedDeltaTime;
+        //transform.Translate(dir);
+        transform.position += dir;
 
     }
 }
