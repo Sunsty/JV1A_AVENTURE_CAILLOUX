@@ -72,7 +72,6 @@ public class Player_Movement : MonoBehaviour
     void MovePlayer()
     {
         Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * moveSpeed * Time.fixedDeltaTime;
-        //transform.Translate(dir);
         transform.position += dir;
 
     }

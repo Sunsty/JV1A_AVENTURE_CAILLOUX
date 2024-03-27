@@ -6,27 +6,34 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy_IA : MonoBehaviour
 {
+    public GameObject player;
     public float speed;
-    private Vector2 target;
-    private Vector2 here;
-    private GameObject objectToFollow;
+
+    private float distance;
 
     void Start()
     {
-        objectToFollow = GameObject.FindWithTag("Player");
+
     }
 
     void Update()
     {
-        here = new(transform.position.x, transform.position.y);
-        target = new(objectToFollow.transform.position.x, objectToFollow.transform.position.y);
-        float step = speed * Time.deltaTime;
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (Vector2.Distance(here, target) < 100f)
+
+
+        if (distance > 4)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, step);
-
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
-
+        else if (distance > 2 && distance < 4)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Vector2.Perpendicular(direction), speed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        }
     }
 }
