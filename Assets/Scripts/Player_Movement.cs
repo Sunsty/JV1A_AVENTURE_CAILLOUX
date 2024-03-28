@@ -8,21 +8,23 @@ public class Player_Movement : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    public float baseMoveSpeed;
-    public GameObject beacon;
 
     public float horizontalMovement;
     public float verticalMovement;    
 
-    private float moveSpeed;
-    private bool dashing = false;
-    private bool canDash = true;
-    private float timerDash = 0;
-    private bool timerDashOn = false;
+    public float moveSpeed;
+
+    private float activeMoveSpeed;
+    public float dashSpeed;
+
+    public float dashLength = .5f, dashCooldown = 1f;
+
+    private float dashCounter;
+    private float dashCooldownCounter;
 
     void Start()
     {
-        moveSpeed = baseMoveSpeed;
+        activeMoveSpeed = moveSpeed;
     }
 
     void Update()
@@ -32,47 +34,48 @@ public class Player_Movement : MonoBehaviour
         verticalMovement = Input.GetAxis("Vertical");
 
         Vector2 target = new(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
-        beacon.transform.position = target;
 
         Debug.Log(target);
 
-        Vector2 lookAngle = beacon.transform.position - transform.position;
-        transform.right = lookAngle;
+        Vector2 lookAngle = target - (Vector2)transform.position;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        if (lookAngle != Vector2.zero)
         {
-            dashing = true;
+            transform.right = lookAngle;
         }
 
-        if (dashing)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            timerDashOn = true;
-            dashing = false;
-        }
-
-        if (timerDashOn)
-        {
-            timerDash += Time.deltaTime;
-            canDash = false;
-
-            if (timerDash > 0.2f)
+            if ( dashCooldownCounter <= 0 && dashCounter <= 0 )
             {
-                timerDashOn = false;
-                canDash = true;
-                timerDash = 0f;
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
             }
         }
 
-        if (!dashing)
+        if (dashCounter > 0)
         {
-            MovePlayer();
+            dashCounter -= Time.fixedDeltaTime;
+
+            if (dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCooldownCounter = dashCooldown;
+            }
         }
+
+        if (dashCooldownCounter > 0)
+        {
+            dashCooldownCounter -= Time.fixedDeltaTime;
+        }
+
+        MovePlayer();
+
     }
 
     void MovePlayer()
     {
-        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * moveSpeed * Time.fixedDeltaTime;
+        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * activeMoveSpeed * Time.fixedDeltaTime;
         transform.position += dir;
-
     }
 }
