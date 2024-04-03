@@ -9,6 +9,7 @@ public class Player_Atk : MonoBehaviour
     public bool isColliding = false ;
     public GameObject collidingWith;
     public float hitForce;
+    public int damage = 25;
     public bool isHiting;
 
     private float hitingCounter;
@@ -25,11 +26,11 @@ public class Player_Atk : MonoBehaviour
     void Update()
     {
 
-        direction = transform.position - collidingWith.transform.position;
-
         if (Input.GetKeyDown(KeyCode.C) && isColliding && !isHiting)
         {
-            isHiting = true ;
+            isHiting = true;
+            Enemy_Health enemy_Health = collidingWith.transform.GetComponent<Enemy_Health>();
+            enemy_Health.TakeDamage(damage);
         }
 
         if (isHiting)
