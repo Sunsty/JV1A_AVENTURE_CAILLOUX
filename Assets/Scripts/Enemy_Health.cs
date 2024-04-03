@@ -6,6 +6,7 @@ public class Enemy_Health : MonoBehaviour
 {
     public int health = 100;
 
+
     void Update()
     {
         if (health <= 0)
