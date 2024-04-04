@@ -9,10 +9,12 @@ public class Player_Movement : MonoBehaviour
     public Rigidbody2D rb;
 
 
-    public float horizontalMovement;
-    public float verticalMovement;    
+    private float horizontalMovement;
+    private float verticalMovement;    
 
     public float moveSpeed;
+    public float atkMSCoef;
+    private float MSCoef = 1;
 
     private float activeMoveSpeed;
     public float dashSpeed;
@@ -22,6 +24,11 @@ public class Player_Movement : MonoBehaviour
     private float dashCounter;
     private float dashCooldownCounter;
 
+    private bool isHiting;
+    private float hitingCounter;
+    public float hitingLenght;
+
+
     void Start()
     {
         activeMoveSpeed = moveSpeed;
@@ -30,12 +37,12 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
 
+        //////////////////////////// - Base Move - ////////////////////////////
+
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
         Vector2 target = new(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
-
-        Debug.Log(target);
 
         Vector2 lookAngle = target - (Vector2)transform.position;
 
@@ -43,6 +50,8 @@ public class Player_Movement : MonoBehaviour
         {
             transform.right = lookAngle;
         }
+
+        //////////////////////////// - Dash - ////////////////////////////
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -69,13 +78,44 @@ public class Player_Movement : MonoBehaviour
             dashCooldownCounter -= Time.fixedDeltaTime;
         }
 
+        //////////////////////////// - ATK Slow - ////////////////////////////
+
+        if ( Input.GetKeyDown(KeyCode.C))
+        {
+            isHiting = true;
+        }
+
+        if (isHiting)
+        {
+            if (hitingCounter <= 0)
+            {
+                hitingCounter = hitingLenght;
+            }
+
+            MSCoef = atkMSCoef;
+
+            isHiting = false;
+        }
+
+        if (hitingCounter > 0)
+        {
+            hitingCounter -= Time.fixedDeltaTime;
+
+            if (hitingCounter < 0)
+            {
+                MSCoef = 1;
+            }
+        }
+
+        //////////////////////////// - Move Func - ////////////////////////////
+
         MovePlayer();
 
     }
 
     void MovePlayer()
     {
-        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * activeMoveSpeed * Time.fixedDeltaTime;
+        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * ( activeMoveSpeed * MSCoef) * Time.fixedDeltaTime;
         transform.position += dir;
     }
 }

@@ -1,30 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public GameObject gmObject;
     public Game_Manager game_manager;
-
-    void Awake()
+    public Enemy_IA enemy_IA;
+    void Update()
     {
         gmObject = GameObject.FindGameObjectWithTag("Game_Manager");
         game_manager = gmObject.GetComponent<Game_Manager>();
-    }
+        enemy_IA = GetComponent<Enemy_IA>();
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (game_manager.GetTimeStopState())
         {
-            SceneManager.LoadScene( 1 , LoadSceneMode.Single);
+            enemy_IA.enabled = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
+        else
         {
-            game_manager.SwitchTime();
+            enemy_IA.enabled = true;
         }
     }
-
 }

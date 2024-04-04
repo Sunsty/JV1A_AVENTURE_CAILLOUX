@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -7,7 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Player_Atk : MonoBehaviour
 {
     public bool isColliding = false ;
-    public GameObject collidingWith;
+    public List<GameObject> collidingWith;
     public float hitForce;
     public int damage = 25;
     public bool isHiting;
@@ -18,51 +20,49 @@ public class Player_Atk : MonoBehaviour
     public Vector2 direction;
     public Vector2 target;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.C) && isColliding && !isHiting)
-        {
-            isHiting = true;
-            Enemy_Health enemy_Health = collidingWith.transform.GetComponent<Enemy_Health>();
-            enemy_Health.TakeDamage(damage);
-        }
+        //////////////////////////// - ATK - ////////////////////////////
 
-        if (isHiting)
+        foreach (var item in collidingWith)
         {
-            if (hitingCounter <= 0)
+            if (Input.GetKeyDown(KeyCode.C) && !isHiting)
             {
-                hitingCounter = hitingLenght;
+                isHiting = true;
+                Enemy_Health enemy_Health = item.transform.GetComponent<Enemy_Health>();
+                enemy_Health.TakeDamage(damage);
             }
-            isHiting = false;
 
-            target = collidingWith.transform.position + (collidingWith.transform.position - transform.position);
-        }
-
-        if (hitingCounter > 0)
-        {
-            hitingCounter -= Time.fixedDeltaTime;
-
-            collidingWith.transform.position = Vector2.MoveTowards(collidingWith.transform.position, target, hitForce * Time.fixedDeltaTime);
-
-            if (hitingCounter < 0)
+            if (isHiting)
             {
+                if (hitingCounter <= 0)
+                {
+                    hitingCounter = hitingLenght;
+                }
+                isHiting = false;
 
+                target = item.transform.position + (item.transform.position - transform.position);
+            }
+
+            if (hitingCounter > 0)
+            {
+                hitingCounter -= Time.fixedDeltaTime;
+
+                item.transform.position = Vector2.MoveTowards(item.transform.position, target, hitForce * Time.fixedDeltaTime);
             }
         }
+
     }
+
+    //////////////////////////// - Coll Detect - ////////////////////////////
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            isColliding = true;
-            collidingWith = collision.gameObject;
+            collidingWith.Add(collision.gameObject);
         }
     }
 
@@ -70,7 +70,7 @@ public class Player_Atk : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            isColliding = false;
+            collidingWith.Remove(collision.gameObject);
         }
     }
 }

@@ -9,7 +9,7 @@ public class Enemy_IA : MonoBehaviour
 {
     public GameObject player;
     public float moveSpeed;
-    private bool canMove = true;
+    public bool canMove = true;
 
     private bool charging;
     private bool idle;
@@ -31,14 +31,54 @@ public class Enemy_IA : MonoBehaviour
 
     public float orbitRange, orbitWidth;
 
-    void Start()
+    public bool gotHit;
+    public float gotHitCounter;
+    public float gotHitLength;
+
+    private int turnDir = 1;
+    public bool inversed;
+
+    void Awake()
     {
-        canMove = true;
         activeMoveSpeed = moveSpeed;
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (inversed)
+        {
+            turnDir = -1;
+        }
+        else
+        {
+            turnDir = 1;
+        }
     }
 
     void Update()
     {
+        
+        //////////////////////////// - Get Hit - ////////////////////////////
+
+        if (gotHit)
+        {
+            if (gotHitCounter <= 0)
+            {
+                gotHitCounter = gotHitLength;
+            }
+
+            canMove = false;
+
+            gotHit = false;
+        }
+
+        if (gotHitCounter > 0)
+        {
+            gotHitCounter -= Time.fixedDeltaTime;
+
+            if (gotHitCounter < 0)
+            {
+                canMove = true;
+            }
+        }
 
         //////////////////////////// - Base Move - ////////////////////////////
 
@@ -57,7 +97,7 @@ public class Enemy_IA : MonoBehaviour
             }
             else if (distance > orbitRange - orbitWidth && distance < orbitRange)
             {
-                transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + Vector2.Perpendicular(direction), activeMoveSpeed * Time.fixedDeltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + (turnDir) * Vector2.Perpendicular(direction), activeMoveSpeed * Time.fixedDeltaTime);
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
             else
@@ -133,6 +173,12 @@ public class Enemy_IA : MonoBehaviour
             canMove = true;
         }
 
+
+    }
+
+    public void GetHit()
+    {
+        gotHit = true;
     }
 
 }
