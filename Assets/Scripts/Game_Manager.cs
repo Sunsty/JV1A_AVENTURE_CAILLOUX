@@ -31,6 +31,8 @@ public class Game_Manager : MonoBehaviour
             isTimeStopped = true;
             switchTime = false;
         }
+
+        Timer();
        
     }
     public bool GetTimeStopState() 
@@ -41,5 +43,10 @@ public class Game_Manager : MonoBehaviour
     public void SwitchTime()
     {
         switchTime = true;
+    }
+
+    void Timer()
+    {
+
     }
 }
