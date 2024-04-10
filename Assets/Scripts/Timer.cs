@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
         else if(remainingTime < 0.1f)
         {
             remainingTime = 0;
+            // Game Over
         }
 
         if (remainingTime < 15)
