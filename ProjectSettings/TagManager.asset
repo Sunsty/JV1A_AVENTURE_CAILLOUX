@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Game_Manager
   - Coin
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
