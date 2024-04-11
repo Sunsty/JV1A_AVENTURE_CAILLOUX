@@ -28,6 +28,10 @@ public class Player_Movement : MonoBehaviour
     private float hitingCounter;
     public float hitingLenght;
 
+    public Vector2 target;
+    public Vector2 lookAngle;
+    public Vector3 dir;
+
 
     void Start()
     {
@@ -42,9 +46,9 @@ public class Player_Movement : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
-        Vector2 target = new(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
+        target = new Vector2(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
 
-        Vector2 lookAngle = target - (Vector2)transform.position;
+        lookAngle = target - (Vector2)transform.position;
 
         if (lookAngle != Vector2.zero)
         {
@@ -55,7 +59,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if ( dashCooldownCounter <= 0 && dashCounter <= 0 )
+            if (dashCooldownCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
@@ -80,7 +84,7 @@ public class Player_Movement : MonoBehaviour
 
         //////////////////////////// - ATK Slow - ////////////////////////////
 
-        if ( Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             isHiting = true;
         }
@@ -109,13 +113,22 @@ public class Player_Movement : MonoBehaviour
 
         //////////////////////////// - Move Func - ////////////////////////////
 
-        MovePlayer();
+        dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * (activeMoveSpeed * MSCoef) * Time.fixedDeltaTime;
+        transform.position += dir;
 
     }
 
-    void MovePlayer()
+    public Vector2 GetTarget()
     {
-        Vector3 dir = new Vector3(horizontalMovement, verticalMovement, 0).normalized * ( activeMoveSpeed * MSCoef) * Time.fixedDeltaTime;
-        transform.position += dir;
+        return target;
+    }
+
+    public Vector2 GetLookAngle()
+    {
+        return lookAngle;
+    }
+    public Vector2 GetDir()
+    {
+        return dir;
     }
 }
