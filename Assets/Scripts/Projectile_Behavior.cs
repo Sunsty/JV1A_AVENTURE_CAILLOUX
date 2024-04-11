@@ -78,11 +78,11 @@ public class Projectile_Behavior : MonoBehaviour
         }
             
     }
-
+/*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision)
         collision.gameObject.GetComponent<Enemy_Health>().TakeDamage(10);
-    }
+    }*/
 
 }
