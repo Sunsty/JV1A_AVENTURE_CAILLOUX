@@ -8,6 +8,8 @@ TagManager:
   - Game_Manager
   - Coin
   - Checkpoint
+  - ATK_Hitbox
+  - Projectile
   layers:
   - Default
   - TransparentFX

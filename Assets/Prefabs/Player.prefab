@@ -267,6 +267,7 @@ MonoBehaviour:
   projectile: {fileID: 5070057393131232311, guid: 441f35c2d492de0408bb4fe0a3cb7293, type: 3}
   target: {x: 0, y: 0}
   playerMovement: {fileID: 1426313667808006464}
+  player: {fileID: 1933961728476098708}
 --- !u!1 &2181053724974541185
 GameObject:
   m_ObjectHideFlags: 0

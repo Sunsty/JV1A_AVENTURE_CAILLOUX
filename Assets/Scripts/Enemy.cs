@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
 
         if (game_manager.GetTimeStopState())
         {
-            enemy_IA.enabled = false;
+            enemy_IA.enabled = true;
         }
         else
         {
-            enemy_IA.enabled = true;
+            enemy_IA.enabled = false;
         }
     }
 }

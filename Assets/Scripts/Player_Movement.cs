@@ -118,17 +118,8 @@ public class Player_Movement : MonoBehaviour
 
     }
 
-    public Vector2 GetTarget()
-    {
-        return target;
-    }
-
     public Vector2 GetLookAngle()
     {
-        return lookAngle;
-    }
-    public Vector2 GetDir()
-    {
-        return dir;
+        return transform.right;
     }
 }

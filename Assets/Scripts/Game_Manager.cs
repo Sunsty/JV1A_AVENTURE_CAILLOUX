@@ -6,6 +6,8 @@ public class Game_Manager : MonoBehaviour
 {
     public GameObject[] element;
 
+    public GameObject filter;
+
     public bool isTimeStopped;
     private bool switchTime;
 
@@ -32,7 +34,15 @@ public class Game_Manager : MonoBehaviour
             switchTime = false;
         }
 
-        Timer();
+        if (isTimeStopped)
+        {
+            filter.SetActive(false);
+        }
+        else
+        {
+            filter.SetActive(true);
+        }
+
        
     }
     public bool GetTimeStopState() 
@@ -45,8 +55,4 @@ public class Game_Manager : MonoBehaviour
         switchTime = true;
     }
 
-    void Timer()
-    {
-
-    }
 }

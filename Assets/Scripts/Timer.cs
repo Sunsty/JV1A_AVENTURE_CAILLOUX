@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
+using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEngine.Android;
 
 public class Timer : MonoBehaviour
 {
@@ -17,48 +19,74 @@ public class Timer : MonoBehaviour
     public float finishedCounter;
     public float finishedLenght;
 
+    public GameObject gmObject;
+    public Game_Manager game_manager;
+
+    public bool paused = false;
+
     private void Start()
     {
+        gmObject = GameObject.FindGameObjectWithTag("Game_Manager");
+        game_manager = gmObject.GetComponent<Game_Manager>();
+
         remainingTime = timeLimit;
     }
 
     void Update()
     {
-        if (remainingTime > 0.1f)
-        {
-            remainingTime -= Time.deltaTime;
-        }
-        else if(remainingTime < 0.1f)
-        {
-            remainingTime = 0;
-            isFinished = true;
-        }
 
-        if (remainingTime < 15)
+        if (game_manager.GetTimeStopState())
         {
-            timerText.color = colorHurry;
+            paused = false;
         }
         else
         {
-            timerText.color = colorBase;
+            paused = true;
         }
 
-        if (isFinished)
+        if (!paused)
         {
-            if (finishedCounter <= 0)
+            if (remainingTime > 0.1f)
             {
-                finishedCounter = finishedLenght;
+                remainingTime -= Time.deltaTime;
             }
-            isFinished = false;
-        }
-        if (finishedCounter > 0)
-        {
-            finishedCounter -= Time.fixedDeltaTime;
+            else if (remainingTime < 0.1f)
+            {
+                remainingTime = 0;
+                isFinished = true;
+            }
 
-            if (finishedCounter < 0)
+            if (remainingTime < 15)
             {
-                remainingTime = timeLimit;
+                timerText.color = colorHurry;
             }
+            else
+            {
+                timerText.color = colorBase;
+            }
+
+            ////////////////////////
+
+            if (isFinished)
+            {
+                if (finishedCounter <= 0)
+                {
+                    finishedCounter = finishedLenght;
+                }
+                isFinished = false;
+            }
+
+            if (finishedCounter > 0)
+            {
+                finishedCounter -= Time.fixedDeltaTime;
+
+                if (finishedCounter < 0)
+                {
+                    remainingTime = timeLimit;
+                }
+            }
+
+            ////////////////////////
         }
 
         int minutes = Mathf.FloorToInt(remainingTime / 60);

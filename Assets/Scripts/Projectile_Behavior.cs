@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Projectile_Behavior : MonoBehaviour
@@ -14,12 +15,20 @@ public class Projectile_Behavior : MonoBehaviour
     private GameObject player;
     private GameObject atkHitbox;
 
+    public GameObject gmObject;
+    private Game_Manager game_manager;
+
     private Vector3 dir;
     private Vector2 rota;
+
+    bool paused;
 
 
     void Awake()
     {
+        gmObject = GameObject.FindGameObjectWithTag("Game_Manager");
+        game_manager = gmObject.GetComponent<Game_Manager>();
+
         playerMovement = FindAnyObjectByType<Player_Movement>();
         rota = playerMovement.GetLookAngle();
 
@@ -35,27 +44,45 @@ public class Projectile_Behavior : MonoBehaviour
 
     void Update()
     {
-
-        if (isTraveling)
+        if (game_manager.GetTimeStopState())
         {
-            if (travelCounter <= 0)
-            {
-                travelCounter = travelLenght;
-            }
-            isTraveling = false;
+            paused = false;
+        }
+        else
+        {
+            paused = true;
         }
 
-        if (travelCounter > 0)
+        if (!paused)
         {
-            travelCounter -= Time.fixedDeltaTime;
-
-            transform.position += dir/50 * travelSpeed;
-
-            if (travelCounter < 0)
+            if (isTraveling)
             {
-                Destroy(gameObject);
+                if (travelCounter <= 0)
+                {
+                    travelCounter = travelLenght;
+                }
+                isTraveling = false;
+            }
+
+            if (travelCounter > 0)
+            {
+                travelCounter -= Time.fixedDeltaTime;
+
+                transform.position += dir/50 * travelSpeed;
+
+                if (travelCounter < 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
+            
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision)
+        collision.gameObject.GetComponent<Enemy_Health>().TakeDamage(10);
     }
 
 }

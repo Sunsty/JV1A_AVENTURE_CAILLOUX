@@ -7,6 +7,7 @@ public class Player_Projectile : MonoBehaviour
     public GameObject projectile;
     public Vector2 target;
     public Player_Movement playerMovement;
+    public GameObject player;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class Player_Projectile : MonoBehaviour
 
     void Update()
     {
-        target = playerMovement.GetTarget();
+        target = player.transform.position;
 
         if (Input.GetKeyDown(KeyCode.V))
         {
