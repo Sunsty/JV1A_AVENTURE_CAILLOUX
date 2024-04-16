@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelLenght: 5
-  travelSpeed: 7
+  travelSpeed: 8
   gmObject: {fileID: 0}

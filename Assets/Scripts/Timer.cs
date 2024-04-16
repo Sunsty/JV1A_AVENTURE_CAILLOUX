@@ -98,4 +98,9 @@ public class Timer : MonoBehaviour
     {
         return remainingTime;
     }
+
+    public void LoseTime(float time)
+    {
+        remainingTime -= time;
+    }
 }

@@ -6,6 +6,7 @@ public class Enemy_Health : MonoBehaviour
 {
     public int health = 100;
     private bool gotHit;
+    public GameObject coin;
 
     void Update()
     {
@@ -18,8 +19,8 @@ public class Enemy_Health : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(coin, transform.position, Quaternion.identity);
             Destroy(gameObject);
-
         }
     }
 
@@ -29,11 +30,12 @@ public class Enemy_Health : MonoBehaviour
         gotHit = true;
     }
 
-   /* private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag(""))
+        if (collision.CompareTag("Projectile"))
         {
-            
+            TakeDamage(10);
+            Destroy(collision.gameObject);
         }
-    }*/
+    }
 }

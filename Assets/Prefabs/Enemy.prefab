@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8605587833806445734}
   - component: {fileID: 3877596683634759336}
   - component: {fileID: 8255962807895793577}
+  - component: {fileID: 8138626062587593838}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -105,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.308593, y: 0.6774717}
   m_EdgeRadius: 0
 --- !u!50 &2565197264718178563
 Rigidbody2D:
@@ -132,7 +133,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &8605587833806445734
 SpriteRenderer:
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  coin: {fileID: 2306329224490474149, guid: 971856c1a267e9542b39a2a9ac42ff5c, type: 3}
 --- !u!114 &8255962807895793577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +213,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5d81c038b42ea41aa1851d57775103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gmObject: {fileID: 0}
+  game_manager: {fileID: 0}
+  enemy_IA: {fileID: 0}
+--- !u!61 &8138626062587593838
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548583302065694184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0136974, y: 0.5}
+  m_EdgeRadius: 0

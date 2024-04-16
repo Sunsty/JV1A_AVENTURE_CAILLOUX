@@ -201,6 +201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gmObject: {fileID: 0}
   game_manager: {fileID: 0}
+  timer: {fileID: 0}
+  enemyDMG: 15
+  hitLenght: 5
 --- !u!114 &7886842341821435908
 MonoBehaviour:
   m_ObjectHideFlags: 0
