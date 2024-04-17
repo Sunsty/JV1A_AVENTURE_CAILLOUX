@@ -9,11 +9,6 @@ public class Player_Health : MonoBehaviour
     public Vector2 spawnPoint;
     public float health = 100;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         health = timer.GetTime();

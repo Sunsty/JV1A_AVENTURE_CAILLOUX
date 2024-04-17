@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
 {
     public GameObject gmObject;
     public Game_Manager game_manager;
-
     public Timer timer;
+
     public float enemyDMG = 15;
 
     private bool enemyCollision;
@@ -28,10 +28,20 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            timer.LoseTime(15);
+        }
+
+        //////////////////////////// - ////////////////////////////
+
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             game_manager.SwitchTime();
         }
+
+        //////////////////////////// - ////////////////////////////
 
         if ( enemyCollision && dmgCooldown )
         {
@@ -60,6 +70,9 @@ public class Player : MonoBehaviour
                 dmgCooldown = true;
             }
         }
+
+        //////////////////////////// - ////////////////////////////
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

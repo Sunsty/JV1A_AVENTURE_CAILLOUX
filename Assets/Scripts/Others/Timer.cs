@@ -3,6 +3,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public DamageManager damageManager;
+
     public TextMeshProUGUI timerText;
     public float remainingTime = 100;
     public float timeLimit;
@@ -98,5 +100,6 @@ public class Timer : MonoBehaviour
     public void LoseTime(float time)
     {
         remainingTime -= time;
+        damageManager.ShowDamageText(time);
     }
 }
