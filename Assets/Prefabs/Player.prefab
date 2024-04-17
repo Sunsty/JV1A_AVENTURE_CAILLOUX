@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 4341726167565733906}
   - component: {fileID: 379396963326325675}
   - component: {fileID: 1211760065641369044}
-  - component: {fileID: 1426313667808006464}
   - component: {fileID: 5474241391521955148}
+  - component: {fileID: 1426313667808006464}
   - component: {fileID: 1792923315292531306}
   - component: {fileID: 7886842341821435908}
   - component: {fileID: 4773937702077139091}
   - component: {fileID: 13175331360438293}
   - component: {fileID: 2373514756198468613}
+  - component: {fileID: 6799116935637016802}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -138,28 +139,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1426313667808006464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933961728476098708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ddee5ac5246f9c4689d055ae1ee122b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 5474241391521955148}
-  moveSpeed: 1
-  atkMSCoef: 0.3
-  dashSpeed: 3
-  dashLength: 1
-  dashCooldown: 1
-  hitingLenght: 2
-  target: {x: 0, y: 0}
-  lookAngle: {x: 0, y: 0}
-  dir: {x: 0, y: 0, z: 0}
 --- !u!50 &5474241391521955148
 Rigidbody2D:
   serializedVersion: 4
@@ -187,6 +166,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1426313667808006464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933961728476098708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddee5ac5246f9c4689d055ae1ee122b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5474241391521955148}
+  moveSpeed: 1
+  atkMSCoef: 0.3
+  dashSpeed: 3
+  dashLength: 1
+  dashCooldown: 1
+  hitingLenght: 2
+  target: {x: 0, y: 0}
+  lookAngle: {x: 0, y: 0}
+  dir: {x: 0, y: 0, z: 0}
+  animator: {fileID: 6799116935637016802}
 --- !u!114 &1792923315292531306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +273,27 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   playerMovement: {fileID: 1426313667808006464}
   player: {fileID: 1933961728476098708}
+--- !u!95 &6799116935637016802
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933961728476098708}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2181053724974541185
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +306,7 @@ GameObject:
   - component: {fileID: 3831339381089876891}
   m_Layer: 0
   m_Name: Atk_Hitbox
-  m_TagString: Untagged
+  m_TagString: ATK_Hitbox
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

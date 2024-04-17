@@ -32,6 +32,8 @@ public class Player_Movement : MonoBehaviour
     public Vector2 lookAngle;
     public Vector3 dir;
 
+    public Animator animator;
+
 
     void Start()
     {
@@ -40,6 +42,14 @@ public class Player_Movement : MonoBehaviour
 
     void Update()
     {
+        if (horizontalMovement == 0 && verticalMovement == 0)
+        {
+            animator.SetBool("Mooving", false);
+        }
+        else
+        {
+            animator.SetBool("Mooving", true);
+        }
 
         //////////////////////////// - Base Move - ////////////////////////////
 

@@ -7,7 +7,7 @@ public class Player_Health : MonoBehaviour
     public Timer timer;
 
     public Vector2 spawnPoint;
-    public float health;
+    public float health = 100;
 
     void Start()
     {
@@ -22,11 +22,6 @@ public class Player_Health : MonoBehaviour
         {
             transform.position = spawnPoint;
         }
-
-    }
-
-    public void TakeDmg(float damage)
-    {
 
     }
 

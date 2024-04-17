@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &205553727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,7 +1014,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2203,12 +2203,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 205553727}
     - target: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8828125
+      objectReference: {fileID: 0}
+    - target: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -869553898, guid: 823edc86591eb1447b9f527e690e4ba2, type: 3}
+    - target: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1211760065641369044, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
+      propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.8828125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211760065641369044, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211760065641369044, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: atkMS
@@ -2217,6 +2233,18 @@ PrefabInstance:
     - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: beacon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: dashLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: dashCooldown
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1426313667808006464, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: baseMoveSpeed
@@ -2230,13 +2258,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2181053724974541185, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
-      propertyPath: m_TagString
-      value: ATK_Hitbox
-      objectReference: {fileID: 0}
     - target: {fileID: 4341726167565733906, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.57
+      value: -4.78
       objectReference: {fileID: 0}
     - target: {fileID: 4341726167565733906, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2278,6 +2302,10 @@ PrefabInstance:
       propertyPath: coinDisplay
       value: 
       objectReference: {fileID: 365739465}
+    - target: {fileID: 6799116935637016802, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 37173064d287a934d90988c01e3633d1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

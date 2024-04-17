@@ -1,16 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.Progress;
-using static UnityEngine.GraphicsBuffer;
-using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEngine.Android;
 
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
-    public float remainingTime;
+    public float remainingTime = 100;
     public float timeLimit;
     public Color colorBase;
     public Color colorHurry;
@@ -34,6 +28,8 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+
+        //////////////////////////// - ////////////////////////////
 
         if (game_manager.GetTimeStopState())
         {
@@ -65,7 +61,7 @@ public class Timer : MonoBehaviour
                 timerText.color = colorBase;
             }
 
-            ////////////////////////
+        //////////////////////////// - ////////////////////////////
 
             if (isFinished)
             {
@@ -86,7 +82,7 @@ public class Timer : MonoBehaviour
                 }
             }
 
-            ////////////////////////
+        //////////////////////////// - ////////////////////////////
         }
 
         int minutes = Mathf.FloorToInt(remainingTime / 60);
