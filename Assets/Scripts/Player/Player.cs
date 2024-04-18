@@ -81,6 +81,11 @@ public class Player : MonoBehaviour
         {
             enemyCollision = true;
         }
+
+        if (collision.CompareTag("Encounter"))
+        {
+            collision.gameObject.GetComponent<Environment_Encounter>().Activate();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

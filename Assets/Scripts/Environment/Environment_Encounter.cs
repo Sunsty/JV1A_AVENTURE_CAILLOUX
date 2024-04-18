@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Environment_Encounter : MonoBehaviour
@@ -7,45 +8,63 @@ public class Environment_Encounter : MonoBehaviour
     public GameObject enemy1;
     public GameObject enemy2;
 
+    public GameObject doors;
+
     public int wavesAmount;
 
-    public List<GameObject> activeEnemies;
+    public GameObject[] activeEnemies;
 
     public List<GameObject> listSP;
 
-    private void Start()
-    {
-        
-    }
+    private bool isFinished;
+    private float finishCounter;
+    public float finishLenght;
+    private bool activated = false;
 
     private void Update()
     {
-        if (wavesAmount > 0)
+        if (activated)
         {
-            if (activeEnemies == null)
+            activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            if (wavesAmount > 0)
             {
-                SpawnEnemies();
-                wavesAmount -= 1;
+                if (activeEnemies.Length == 0)
+                {
+                    SpawnEnemies();
+                    wavesAmount -= 1;
+                    isFinished = true;
+                }
+            }
+
+            if (isFinished)
+            {
+                if (finishCounter <= 0)
+                {
+                    finishCounter = finishLenght;
+                }
+
+                isFinished = false;
+            }
+
+            if (finishCounter > 0)
+            {
+                finishCounter -= Time.fixedDeltaTime;
+
+            }
+
+            if (finishCounter < 0)
+            {
+                if (wavesAmount == 0 && activeEnemies.Length == 0)
+                {
+                    doors.SetActive(false);
+                }
             }
         }
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-        activeEnemies.Add(collision.gameObject);
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-        activeEnemies.Remove(collision.gameObject);
-        }
-    }
+
 
     private void SpawnEnemies()
     {
@@ -53,5 +72,11 @@ public class Environment_Encounter : MonoBehaviour
         {
             Instantiate(enemy1, item.transform.position, Quaternion.identity);
         }
+    }
+
+    public void Activate()
+    {
+        activated = true;
+        doors.SetActive(true);
     }
 }

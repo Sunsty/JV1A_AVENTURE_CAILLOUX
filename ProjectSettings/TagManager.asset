@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - ATK_Hitbox
   - Projectile
+  - Encounter
   layers:
   - Default
   - TransparentFX
