@@ -19,7 +19,12 @@ public class Environment_Encounter : MonoBehaviour
     private bool isFinished;
     private float finishCounter;
     public float finishLenght;
-    private bool activated = false;
+    private bool activated;
+
+    private bool inCooldown;
+    private float cooldownCounter;
+    public float cooldownLenght;
+    private bool cooldown;
 
     private void Update()
     {
@@ -27,15 +32,47 @@ public class Environment_Encounter : MonoBehaviour
         {
             activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+            ////////////////////////////////////
+
             if (wavesAmount > 0)
             {
                 if (activeEnemies.Length == 0)
+                {
+                    inCooldown = true;
+                }
+
+                if (inCooldown)
+                {
+                    if (cooldownCounter <= 0)
+                    {
+                        cooldownCounter = cooldownLenght;
+                    }
+                    cooldown = true;
+
+                    inCooldown = false;
+                }
+
+                if (cooldownCounter > 0)
+                {
+                    cooldownCounter -= Time.fixedDeltaTime;
+                }
+
+                if (cooldownCounter < 0)
+                {
+                    cooldown = false;
+                }
+
+                ////////////////////////////////////
+
+                if (activeEnemies.Length == 0 && !cooldown)
                 {
                     SpawnEnemies();
                     wavesAmount -= 1;
                     isFinished = true;
                 }
             }
+
+            ////////////////////////////////////
 
             if (isFinished)
             {

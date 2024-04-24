@@ -49,7 +49,7 @@ public class Player_Atk : MonoBehaviour
             {
                 hitingCounter -= Time.fixedDeltaTime;
 
-                item.transform.position = Vector2.MoveTowards(item.transform.position, target, hitForce * Time.fixedDeltaTime);
+                item.transform.position = Vector2.MoveTowards(item.transform.position, target, hitForce * Time.fixedDeltaTime); ///~> AV <~///
             }
         }
 

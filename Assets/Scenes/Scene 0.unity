@@ -1249,7 +1249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &709078920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,6 +1977,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1933961728476098708, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
   m_PrefabInstance: {fileID: 2675782683865598980}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1370674391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 13175331360438293, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+  m_PrefabInstance: {fileID: 2675782683865598980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370674388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 629b7f6ec56f15645bdea2e4de177893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1370674394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1792923315292531306, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+  m_PrefabInstance: {fileID: 2675782683865598980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370674388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63709529d121554fa83c0fc81f91a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1370674398 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+  m_PrefabInstance: {fileID: 2675782683865598980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480324754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2317,14 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 13175331360438293, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1370674394}
+    - target: {fileID: 13175331360438293, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1370674398}
     - target: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_Size.x
       value: 0.8828125
@@ -2342,6 +2377,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 205553727}
+    - target: {fileID: 1792923315292531306, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1370674391}
     - target: {fileID: 1933961728476098708, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2394,6 +2433,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 37173064d287a934d90988c01e3633d1, type: 2}
+    - target: {fileID: 7886842341821435908, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

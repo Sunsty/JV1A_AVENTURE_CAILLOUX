@@ -100,6 +100,6 @@ public class Timer : MonoBehaviour
     public void LoseTime(float time)
     {
         remainingTime -= time;
-        damageManager.ShowDamageText(time);
-    }
+/*        damageManager.ShowDamageText(time);
+*/    }
 }

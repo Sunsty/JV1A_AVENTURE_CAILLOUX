@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
     public GameObject gmObject;
     public Game_Manager game_manager;
     public Timer timer;
+    public Player_Health health;
 
     public float enemyDMG = 15;
 
     private bool enemyCollision;
-    private bool dmgCooldown = true;
+    private bool canTakeDmg = true;
 
     private bool isHit;
     private float hitCounter;
@@ -43,32 +44,10 @@ public class Player : MonoBehaviour
 
         //////////////////////////// - ////////////////////////////
 
-        if ( enemyCollision && dmgCooldown )
+        if (enemyCollision && canTakeDmg)
         {
             timer.LoseTime(enemyDMG);
-            isHit = true;
-        }
-
-        if (isHit)
-        {
-            if (hitCounter <= 0)
-            {
-                hitCounter = hitLenght;
-            }
-
-            dmgCooldown = false;
-
-            isHit = false;
-        }
-
-        if (hitCounter > 0)
-        {
-            hitCounter -= Time.fixedDeltaTime;
-
-            if (hitCounter < 0)
-            {
-                dmgCooldown = true;
-            }
+            health.TakeDmg();
         }
 
         //////////////////////////// - ////////////////////////////
@@ -84,7 +63,9 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Encounter"))
         {
-            collision.gameObject.GetComponent<Environment_Encounter>().Activate();
+            Debug.Log("######");
+            collision.gameObject.GetComponentInParent<Environment_Encounter>().Activate();
+            Destroy(collision.gameObject);
         }
     }
 
@@ -94,5 +75,10 @@ public class Player : MonoBehaviour
         {
             enemyCollision = false;
         }
+    }
+
+    public void SetCanTakeDmg(bool state)
+    {
+        canTakeDmg = state;
     }
 }
