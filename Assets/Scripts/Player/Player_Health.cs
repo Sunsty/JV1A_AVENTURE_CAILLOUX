@@ -16,7 +16,7 @@ public class Player_Health : MonoBehaviour
     private bool takeDmg;
 
     private float takeDmgCounter;
-    private float takeDmgLenght;
+    public float takeDmgLenght;
 
     void Update()
     {
@@ -40,7 +40,7 @@ public class Player_Health : MonoBehaviour
         {
             takeDmgCounter -= Time.fixedDeltaTime;
 
-            if (takeDmgCounter % 0.25f >= 0.12f)
+            if (takeDmgCounter % 0.75f >= 0.325f)
             {
                 sprite.color = new Color(255, 255, 255, 0);
             }

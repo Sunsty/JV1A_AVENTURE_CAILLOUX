@@ -17,10 +17,6 @@ public class Player : MonoBehaviour
     private bool enemyCollision;
     private bool canTakeDmg = true;
 
-    private bool isHit;
-    private float hitCounter;
-    public float hitLenght;
-
     void Awake()
     {
         gmObject = GameObject.FindGameObjectWithTag("Game_Manager");

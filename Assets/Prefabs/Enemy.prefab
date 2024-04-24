@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8605587833806445734}
   - component: {fileID: 3877596683634759336}
   - component: {fileID: 8255962807895793577}
-  - component: {fileID: 7519690719263654008}
+  - component: {fileID: 9121216300304725752}
+  - component: {fileID: 2275336241388182236}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -30,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548583302065694184}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0, z: 0.000019379133, w: -1}
   m_LocalPosition: {x: -4.4, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.002}
 --- !u!114 &1822065598984991910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +54,7 @@ MonoBehaviour:
   moveSpeed: 0.5
   canMove: 1
   dashSpeed: 5
-  chargeCooldown: 4
+  chargeCooldown: 5
   dashLength: 2
   idleLenght: 10
   orbitRange: 8
@@ -170,7 +171,28 @@ MonoBehaviour:
   gmObject: {fileID: 0}
   game_manager: {fileID: 0}
   enemy_IA: {fileID: 0}
---- !u!60 &7519690719263654008
+--- !u!95 &9121216300304725752
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548583302065694184}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48afa3c257f3c0043a34adf0617cfb63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &2275336241388182236
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +228,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.87, y: 6.560757}
+    oldSize: {x: 3.2803786, y: 2.935}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -214,12 +236,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.019581318}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.023737907, y: -0.25258744}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.01699388}
-      - {x: 0.5, y: 0.015625}
-      - {x: 0.023737907, y: 0.25}
+    - - {x: 0.005122711, y: -0.46626377}
+      - {x: 0.49602425, y: 0.025751121}
+      - {x: 0.0051928144, y: 0.51269317}
+      - {x: -0.48570883, y: 0.025836978}
   m_UseDelaunayMesh: 0

@@ -2533,6 +2533,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 1548583302065694184, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
   enemy2: {fileID: 5707180606829327471, guid: a446212f1cb3e9145a1b4f8048234264, type: 3}
+  enemies:
+  - {fileID: 1548583302065694184, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
+  - {fileID: 5707180606829327471, guid: a446212f1cb3e9145a1b4f8048234264, type: 3}
   doors: {fileID: 502221451}
   wavesAmount: 3
   activeEnemies: []

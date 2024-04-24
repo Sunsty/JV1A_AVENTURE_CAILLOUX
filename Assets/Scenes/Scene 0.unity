@@ -2325,6 +2325,10 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1370674398}
+    - target: {fileID: 13175331360438293, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
+      propertyPath: takeDmgLenght
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 379396963326325675, guid: 5dde024c8dab97446a3aab4969417f95, type: 3}
       propertyPath: m_Size.x
       value: 0.8828125

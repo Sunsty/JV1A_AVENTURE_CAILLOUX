@@ -8,6 +8,8 @@ public class Environment_Encounter : MonoBehaviour
     public GameObject enemy1;
     public GameObject enemy2;
 
+    public GameObject[] enemies;
+
     public GameObject doors;
 
     public int wavesAmount;
@@ -105,9 +107,11 @@ public class Environment_Encounter : MonoBehaviour
 
     private void SpawnEnemies()
     {
+        int i = 0;
         foreach (var item in listSP)
         {
-            Instantiate(enemy1, item.transform.position, Quaternion.identity);
+            Instantiate(enemies[i%(enemies.Length)], item.transform.position, Quaternion.identity);
+            i++;
         }
     }
 
