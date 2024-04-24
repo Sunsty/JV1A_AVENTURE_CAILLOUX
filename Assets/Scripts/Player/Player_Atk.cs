@@ -73,4 +73,12 @@ public class Player_Atk : MonoBehaviour
             collidingWith.Remove(collision.gameObject);
         }
     }
+
+    /////////////////////////////////////////////////////////////////////
+    ///
+    ///   Player ATK Knockback : Add Knockback force + divide until 0
+    ///   
+    ///   Swipe ATK : hitbox instentiate + rotate
+    /// 
+    /////////////////////////////////////////////////////////////////////
 }
