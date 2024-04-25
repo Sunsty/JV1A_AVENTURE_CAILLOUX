@@ -34,8 +34,6 @@ public class Player_Health : MonoBehaviour
             takeDmg = false;
         }
 
-        Debug.Log(takeDmgCounter % 0.25f);
-
         if (takeDmgCounter > 0)
         {
             takeDmgCounter -= Time.fixedDeltaTime;

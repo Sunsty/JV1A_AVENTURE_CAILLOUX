@@ -12,6 +12,7 @@ public class Player_Atk : MonoBehaviour
     public List<GameObject> collidingWith;
     public float hitForce;
     public int damage = 25;
+    private bool canHit;
     public bool isHiting;
 
     private float hitingCounter;
@@ -20,14 +21,21 @@ public class Player_Atk : MonoBehaviour
     public Vector2 direction;
     public Vector2 target;
 
+    public GameObject sword;
+
     void Update()
     {
 
         //////////////////////////// - ATK - ////////////////////////////
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Instantiate(sword, transform.position, Quaternion.identity, transform);
+        }
+
         foreach (var item in collidingWith)
         {
-            if (Input.GetKeyDown(KeyCode.C) && !isHiting)
+            if (Input.GetKeyDown(KeyCode.C) && canHit)
             {
                 isHiting = true;
                 Enemy_Health enemy_Health = item.transform.GetComponent<Enemy_Health>();
@@ -40,16 +48,18 @@ public class Player_Atk : MonoBehaviour
                 {
                     hitingCounter = hitingLenght;
                 }
+                canHit = false;
                 isHiting = false;
-
-                target = item.transform.position + (item.transform.position - transform.position);
             }
 
             if (hitingCounter > 0)
             {
                 hitingCounter -= Time.fixedDeltaTime;
 
-                item.transform.position = Vector2.MoveTowards(item.transform.position, target, hitForce * Time.fixedDeltaTime); ///~> AV <~///
+                if (hitingCounter < 0)
+                {
+                    canHit = true;
+                }
             }
         }
 

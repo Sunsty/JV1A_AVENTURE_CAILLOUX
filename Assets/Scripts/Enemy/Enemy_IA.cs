@@ -7,8 +7,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy_IA : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     public GameObject player;
     public float moveSpeed;
+    private Vector3 knockback;
     public bool canMove = true;
 
     private bool charging;
@@ -65,14 +68,18 @@ public class Enemy_IA : MonoBehaviour
                 gotHitCounter = gotHitLength;
             }
 
-            canMove = false;
+            knockback = transform.position - player.transform.position;
 
+            canMove = false;
             gotHit = false;
         }
 
         if (gotHitCounter > 0)
         {
             gotHitCounter -= Time.fixedDeltaTime;
+
+            rb.AddForce(-(transform.position - player.transform.position));
+            knockback /= 1.1f;
 
             if (gotHitCounter < 0)
             {

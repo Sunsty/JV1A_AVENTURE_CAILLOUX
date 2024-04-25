@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,7 +30,7 @@ public class Player_Movement : MonoBehaviour
     public float hitingLenght;
 
     public Vector2 target;
-    public Vector2 lookAngle;
+    public float lookAngle;
     public Vector3 dir;
 
     public Animator animator;
@@ -56,14 +57,19 @@ public class Player_Movement : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
-        target = new Vector2(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
-
-        lookAngle = target - (Vector2)transform.position;
-
-        if (lookAngle != Vector2.zero)
+/*        target = new Vector2(transform.position.x + horizontalMovement, transform.position.y + verticalMovement);
+*/
+        if (horizontalMovement + verticalMovement != 0)
         {
-            transform.right = lookAngle;
+            target = new Vector2(horizontalMovement, verticalMovement);
+
+            float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
+        
+        
+        
 
         //////////////////////////// - Dash - ////////////////////////////
 
@@ -131,5 +137,10 @@ public class Player_Movement : MonoBehaviour
     public Vector2 GetLookAngle()
     {
         return transform.right;
+    }
+
+    public void SetMS(float ms)
+    {
+
     }
 }
