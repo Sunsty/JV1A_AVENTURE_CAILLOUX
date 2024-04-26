@@ -11,6 +11,9 @@ TagManager:
   - ATK_Hitbox
   - Projectile
   - Encounter
+  - Sword
+  - PowerUp1
+  - PowerUp2
   layers:
   - Default
   - TransparentFX

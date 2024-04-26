@@ -9,11 +9,7 @@ public class Sword_Swing : MonoBehaviour
 {
     public GameObject player;
 
-    private bool alive;
-    private float aliveCounter;
-    public float aliveLenght;
-
-    private bool terminate;
+    private float angle;
 
     private bool swing;
     private float timeCount;
@@ -26,39 +22,20 @@ public class Sword_Swing : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         swing = true;
-        alive = true;
     }
 
     void Update()
     {
-        if (alive)
-        {
-            if (aliveCounter <= 0)
-            {
-                aliveCounter = aliveLenght;
-            }
-
-            alive = false;
-        }
-
-        if (aliveCounter > 0)
-        {
-            aliveCounter += Time.fixedDeltaTime;
-
-            if (aliveCounter < 0)
-            {
-                terminate = true;
-            }
-        }
 
         if (swing)
         {
-            transform.rotation = Quaternion.Slerp(Quaternion.Euler(player.transform.localRotation.x * 360f, player.transform.localRotation.y * 360f, player.transform.localRotation.z * 360f) , Quaternion.Euler(player.transform.localRotation.x * 360f, player.transform.localRotation.y * 360f, player.transform.localRotation.z * 360f - 150f) , timeCount);
+            angle = Mathf.Lerp(0, -150, timeCount);
+
+            transform.localRotation = Quaternion.Euler(0, 0, angle);
             timeCount += Time.fixedDeltaTime;
 
-            if (terminate)
+            if (angle == -150)
             {
-                Debug.Log("End");
                 swingEnd = true;
 
                 if (swingEnd)

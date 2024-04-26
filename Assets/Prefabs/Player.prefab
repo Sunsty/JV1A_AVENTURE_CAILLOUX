@@ -186,7 +186,7 @@ MonoBehaviour:
   dashCooldown: 5
   hitingLenght: 2
   target: {x: 0, y: 0}
-  lookAngle: {x: 0, y: 0}
+  lookAngle: 0
   dir: {x: 0, y: 0, z: 0}
   animator: {fileID: 6662070421141212024}
 --- !u!114 &3772203568750017733
@@ -226,6 +226,7 @@ MonoBehaviour:
   hitingLenght: 2
   direction: {x: 0, y: 0}
   target: {x: 0, y: 0}
+  sword: {fileID: 0}
 --- !u!114 &4510306814330007333
 MonoBehaviour:
   m_ObjectHideFlags: 0

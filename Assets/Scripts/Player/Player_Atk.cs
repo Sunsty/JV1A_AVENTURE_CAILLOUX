@@ -8,6 +8,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Player_Atk : MonoBehaviour
 {
+    private GameObject player;
+
     public bool isColliding = false ;
     public List<GameObject> collidingWith;
     public float hitForce;
@@ -23,6 +25,11 @@ public class Player_Atk : MonoBehaviour
 
     public GameObject sword;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+    }
     void Update()
     {
 

@@ -11,7 +11,10 @@ public class Enemy_IA : MonoBehaviour
 
     public GameObject player;
     public float moveSpeed;
-    private Vector3 knockback;
+
+    public Vector3 knockback;
+    public float knockbackRatio;
+
     public bool canMove = true;
 
     private bool charging;
@@ -37,6 +40,7 @@ public class Enemy_IA : MonoBehaviour
     public bool gotHit;
     public float gotHitCounter;
     public float gotHitLength;
+    private bool canGetHit = true;
 
     private int turnDir = 1;
     public bool inversed;
@@ -68,8 +72,9 @@ public class Enemy_IA : MonoBehaviour
                 gotHitCounter = gotHitLength;
             }
 
-            knockback = transform.position - player.transform.position;
+            knockback = -(knockbackRatio)*(transform.position - player.transform.position);
 
+            canGetHit = false;
             canMove = false;
             gotHit = false;
         }
@@ -78,12 +83,14 @@ public class Enemy_IA : MonoBehaviour
         {
             gotHitCounter -= Time.fixedDeltaTime;
 
-            rb.AddForce(-(transform.position - player.transform.position));
+            rb.AddForce(knockback);
             knockback /= 1.1f;
 
             if (gotHitCounter < 0)
             {
+                knockback = Vector3.zero;
                 canMove = true;
+                canGetHit = true;
             }
         }
 
@@ -175,7 +182,7 @@ public class Enemy_IA : MonoBehaviour
             }
         }
 
-        if (dashCounter < 0 && idleCounter < 0)
+        if (dashCounter < 0 && idleCounter < 0 && gotHitCounter <= 0)
         {
             canMove = true;
         }
@@ -183,9 +190,18 @@ public class Enemy_IA : MonoBehaviour
 
     }
 
-    public void GetHit()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        gotHit = true;
+        if (collision.CompareTag("Sword") && canGetHit)
+        {
+            gameObject.GetComponent<Enemy_Health>().TakeDamage(50);
+            gotHit = true;
+        }
+        
+        if (collision.CompareTag("Projectile") && canGetHit)
+        {
+            gameObject.GetComponent<Enemy_Health>().TakeDamage(25);
+            gotHit = true;
+        }
     }
-
 }

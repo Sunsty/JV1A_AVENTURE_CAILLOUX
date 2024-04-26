@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccf20d543971a8458c63427a6e67c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 2565197264718178563}
   player: {fileID: 0}
   moveSpeed: 0.5
   canMove: 1
