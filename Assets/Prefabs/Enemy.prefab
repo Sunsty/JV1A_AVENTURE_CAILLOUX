@@ -52,9 +52,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2565197264718178563}
   player: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 4
+  knockback: {x: 0, y: 0, z: 0}
+  knockbackRatio: 8
   canMove: 1
-  dashSpeed: 5
+  dashSpeed: 40
   chargeCooldown: 5
   dashLength: 2
   idleLenght: 10
@@ -77,7 +79,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 7
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

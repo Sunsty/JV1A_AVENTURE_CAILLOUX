@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 using static UnityEngine.GraphicsBuffer;
 
+
+/// <summary>
+/// Au lieu de position --> calculer direction puis aposer temps
+/// </summary>
 public class Enemy_IA : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -45,6 +49,8 @@ public class Enemy_IA : MonoBehaviour
     private int turnDir = 1;
     public bool inversed;
 
+    private Vector3 newPosition;
+
     void Awake()
     {
         activeMoveSpeed = moveSpeed;
@@ -60,6 +66,14 @@ public class Enemy_IA : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (canGetHit)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, newPosition, activeMoveSpeed * Time.fixedDeltaTime);
+        }
+    }
+
     void Update()
     {
         
@@ -72,8 +86,9 @@ public class Enemy_IA : MonoBehaviour
                 gotHitCounter = gotHitLength;
             }
 
-            knockback = -(knockbackRatio)*(transform.position - player.transform.position);
+            knockback = (knockbackRatio)*(transform.position - player.transform.position);
 
+            rb.AddForce(knockback, ForceMode2D.Impulse);
             canGetHit = false;
             canMove = false;
             gotHit = false;
@@ -83,40 +98,40 @@ public class Enemy_IA : MonoBehaviour
         {
             gotHitCounter -= Time.fixedDeltaTime;
 
-            rb.AddForce(knockback);
-            knockback /= 1.1f;
-
             if (gotHitCounter < 0)
             {
-                knockback = Vector3.zero;
                 canMove = true;
                 canGetHit = true;
+                rb.velocity = Vector2.zero;
             }
         }
 
         //////////////////////////// - Base Move - ////////////////////////////
 
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
 
 
         if (canMove)
-        {
+        {       
+
+            distance = Vector2.Distance(transform.position, player.transform.position);
+            Vector2 direction = player.transform.position - transform.position;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
             if (distance > orbitRange)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, activeMoveSpeed * Time.fixedDeltaTime);
+                newPosition = player.transform.position;
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
             else if (distance > orbitRange - orbitWidth && distance < orbitRange)
             {
-                transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + (turnDir) * Vector2.Perpendicular(direction), activeMoveSpeed * Time.fixedDeltaTime);
+                newPosition = (Vector2)transform.position + (turnDir) * Vector2.Perpendicular(direction);
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, -player.transform.position, activeMoveSpeed * Time.fixedDeltaTime);
+                newPosition = -player.transform.position;
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
         }
@@ -142,13 +157,16 @@ public class Enemy_IA : MonoBehaviour
                 target = player.transform.position + (player.transform.position - transform.position);
             }
 
+            canMove = false;
+
             idle = false;
         }
 
         if (idleCounter > 0)
         {
-            canMove = false;
             idleCounter -= Time.fixedDeltaTime;
+
+            newPosition = transform.position;
 
             if (idleCounter < 0)
             {
@@ -171,10 +189,10 @@ public class Enemy_IA : MonoBehaviour
 
         if (dashCounter > 0)
         {
-            canMove = false;
+            
             dashCounter -= Time.fixedDeltaTime;
 
-            transform.position = Vector2.MoveTowards(transform.position, target, activeMoveSpeed * Time.fixedDeltaTime);
+            newPosition = target;
 
             if (dashCounter <= 0)
             {

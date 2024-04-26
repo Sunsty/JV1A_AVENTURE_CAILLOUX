@@ -739,13 +739,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1822065598984991910, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
-      propertyPath: gotHitLength
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1822065598984991910, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
-      propertyPath: knockbackRatio
-      value: 50
+    - target: {fileID: 8255962807895793577, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
