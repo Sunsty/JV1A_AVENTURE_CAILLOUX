@@ -138,9 +138,4 @@ public class Player_Movement : MonoBehaviour
     {
         return transform.right;
     }
-
-    public void SetMS(float ms)
-    {
-
-    }
 }

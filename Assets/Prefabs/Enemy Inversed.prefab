@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1822065598984991910, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
       propertyPath: orbitRange
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1822065598984991910, guid: ca1ea63a6cdab454482099ad5aa35943, type: 3}
       propertyPath: chargeCooldown

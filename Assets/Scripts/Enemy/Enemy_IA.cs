@@ -12,6 +12,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Enemy_IA : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator animator;
 
     public GameObject player;
     public float moveSpeed;
@@ -112,7 +113,8 @@ public class Enemy_IA : MonoBehaviour
 
 
         if (canMove)
-        {       
+        {
+            animator.SetBool("isCharging", false);
 
             distance = Vector2.Distance(transform.position, player.transform.position);
             Vector2 direction = player.transform.position - transform.position;
@@ -183,6 +185,8 @@ public class Enemy_IA : MonoBehaviour
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
             }
+
+            animator.SetBool("isCharging", true);
 
             charging = false;
         }

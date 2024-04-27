@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     private bool enemyCollision;
     private bool canTakeDmg = true;
+    private bool hasPU1;
+    private bool hasPU2;
 
     void Awake()
     {
@@ -32,11 +34,14 @@ public class Player : MonoBehaviour
 
         //////////////////////////// - ////////////////////////////
 
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            game_manager.SwitchTime();
+        if (hasPU2) 
+        { 
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                game_manager.SwitchTime();
+            }
         }
+            
 
         //////////////////////////// - ////////////////////////////
 
@@ -59,6 +64,18 @@ public class Player : MonoBehaviour
             collision.gameObject.GetComponentInParent<Environment_Encounter>().Activate();
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("PowerUp1")) 
+        {
+            hasPU1 = true;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("PowerUp2"))
+        {
+            hasPU2 = true;
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,5 +89,10 @@ public class Player : MonoBehaviour
     public void SetCanTakeDmg(bool state)
     {
         canTakeDmg = state;
+    }
+
+    public bool GetPU1state()
+    {
+        return hasPU1;
     }
 }

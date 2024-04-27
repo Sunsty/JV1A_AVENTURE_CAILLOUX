@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2565197264718178563}
+  animator: {fileID: 9121216300304725752}
   player: {fileID: 0}
   moveSpeed: 4
   knockback: {x: 0, y: 0, z: 0}
@@ -60,7 +61,7 @@ MonoBehaviour:
   chargeCooldown: 5
   dashLength: 2
   idleLenght: 10
-  orbitRange: 8
+  orbitRange: 12
   orbitWidth: 2
   gotHit: 0
   gotHitCounter: 0

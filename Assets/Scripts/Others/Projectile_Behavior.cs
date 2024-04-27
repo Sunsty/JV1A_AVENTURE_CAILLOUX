@@ -33,9 +33,8 @@ public class Projectile_Behavior : MonoBehaviour
         rota = playerMovement.GetLookAngle();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        atkHitbox = GameObject.FindGameObjectWithTag("ATK_Hitbox");
 
-        dir =  atkHitbox.transform.position - player.transform.position;
+        dir = player.GetComponent<Player_Movement>().GetLookAngle();
 
         transform.right = rota;
 
@@ -75,8 +74,11 @@ public class Projectile_Behavior : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-        }
-            
+        }       
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
