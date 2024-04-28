@@ -32,7 +32,7 @@ public class Projectile_Behavior : MonoBehaviour
         playerMovement = FindAnyObjectByType<Player_Movement>();
         rota = playerMovement.GetLookAngle();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player_Parent");
 
         dir = player.GetComponent<Player_Movement>().GetLookAngle();
 
@@ -80,5 +80,15 @@ public class Projectile_Behavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Projectile_Trigger"))
+        {
+            Debug.Log("IN");
+            collision.GetComponent<Projectile_Trigger>().Activate();
+            Destroy(gameObject);
+        }
     }
 }

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Game_Manager game_manager;
     public Timer timer;
     public Player_Health health;
+    public GameObject key_display;
 
     public float enemyDMG = 15;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private bool canTakeDmg = true;
     private bool hasPU1;
     private bool hasPU2;
+    private bool hasKey;
 
     void Awake()
     {
@@ -55,6 +57,15 @@ public class Player : MonoBehaviour
 
         enemyCollision = false;
 
+        if (hasKey)
+        {
+            key_display.SetActive(true);
+        }
+        else
+        {
+            key_display.SetActive(false);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,6 +87,17 @@ public class Player : MonoBehaviour
             hasPU2 = true;
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Key"))
+        {
+            hasKey = true;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("Locked_Door"))
+        {
+            collision.gameObject.GetComponent<Locked_Door>().SetHasKey(hasKey);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -94,5 +116,10 @@ public class Player : MonoBehaviour
     public bool GetPU1state()
     {
         return hasPU1;
+    }
+
+    public void SetKeyState(bool state)
+    {
+        hasKey = state;
     }
 }

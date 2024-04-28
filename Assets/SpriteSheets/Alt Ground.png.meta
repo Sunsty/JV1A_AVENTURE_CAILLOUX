@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: 2e2721e4822692b41bf89bac308237fc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Alt Ground_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1738.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64967eef0565df4eb877fb97241095e
+      internalID: 1203826034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_1
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1738.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9db1fba314d134da42831db7fc9988
+      internalID: 360029170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_2
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1738.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89950e8de1bf0a544bae66893ab1a29e
+      internalID: -1801117775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_3
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1738.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07513af2c3c48254a8844509738d71c2
+      internalID: -1697017943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_4
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1738.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a2a6d51c236f04392e19566a4ebcec
+      internalID: 742425928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1159.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 976b1e96c4b0ab341a096c3e7ea9331f
+      internalID: 1225874307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_6
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1159.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e609c4e86079f7479c2110c11f59ed7
+      internalID: 1016350036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_7
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1159.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da284048c983fbd4ab9573d6ba550bed
+      internalID: -1379715900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_8
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1159.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3015f4d6b8c9e4e4099c1131f69d6cd6
+      internalID: -1628973101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_9
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1159.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7bed353b676b2c4b94bcdfda30676cc
+      internalID: 837918268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 580.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f602586d1c358648b597e7f71865291
+      internalID: 1744062455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_11
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 580.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778dbc55d8095fb4fae68a3dacea1abd
+      internalID: 2033998119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_12
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 580.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db30ef45181a22a438a88aee044b4528
+      internalID: -720014017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_13
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 580.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcddc4c1927e57643882e85ac26464e2
+      internalID: 873178497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_14
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 580.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f48de5f8417ec34b9c2bdfb21f6b231
+      internalID: 1492747380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb720103652bbb84d9e97fe31ea1f462
+      internalID: -1632454878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_16
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44e902fc69283346ab0bac7e88483df
+      internalID: 722206031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_17
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212ca73355f829a409e95bda91c18564
+      internalID: -1345590050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_18
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea12fb014aaf9e458758a7694d0f9f4
+      internalID: -994590232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt Ground_19
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1.5
+        width: 575
+        height: 579.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34613b2d9e7f08d41a9e64c718fb9e2d
+      internalID: -2031919574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Alt Ground_0: 1203826034
+      Alt Ground_1: 360029170
+      Alt Ground_10: 1744062455
+      Alt Ground_11: 2033998119
+      Alt Ground_12: -720014017
+      Alt Ground_13: 873178497
+      Alt Ground_14: 1492747380
+      Alt Ground_15: -1632454878
+      Alt Ground_16: 722206031
+      Alt Ground_17: -1345590050
+      Alt Ground_18: -994590232
+      Alt Ground_19: -2031919574
+      Alt Ground_2: -1801117775
+      Alt Ground_3: -1697017943
+      Alt Ground_4: 742425928
+      Alt Ground_5: 1225874307
+      Alt Ground_6: 1016350036
+      Alt Ground_7: -1379715900
+      Alt Ground_8: -1628973101
+      Alt Ground_9: 837918268
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,8 +9,7 @@ public class Environment_Encounter : MonoBehaviour
     public GameObject enemy2;
 
     public GameObject[] enemies;
-
-    public GameObject doors;
+    public GameObject[] doors;
 
     public int wavesAmount;
 
@@ -27,6 +26,15 @@ public class Environment_Encounter : MonoBehaviour
     private float cooldownCounter;
     public float cooldownLenght;
     private bool cooldown;
+
+    private void Awake()
+    {
+        foreach (var item in doors)
+        {
+            item.GetComponent<Animator>().SetBool("Opening", true);
+            item.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 
     private void Update()
     {
@@ -96,7 +104,11 @@ public class Environment_Encounter : MonoBehaviour
             {
                 if (wavesAmount == 0 && activeEnemies.Length == 0)
                 {
-                    doors.SetActive(false);
+                    foreach (var item in doors)
+                    {
+                        item.GetComponent<Animator>().SetBool("Opening", true);
+                        item.GetComponent<BoxCollider2D>().enabled = false;
+                    }
                 }
             }
         }
@@ -118,6 +130,10 @@ public class Environment_Encounter : MonoBehaviour
     public void Activate()
     {
         activated = true;
-        doors.SetActive(true);
+        foreach (var item in doors)
+        {
+            item.GetComponent<Animator>().SetBool("Opening", false);
+            item.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 }

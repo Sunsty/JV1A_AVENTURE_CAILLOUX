@@ -7,7 +7,7 @@ public class Player_Spawner : MonoBehaviour
 
     void Awake()
     {
-        GameObject.FindWithTag("Player").transform.position = this.transform.position;
+        GameObject.FindWithTag("Player_Parent").GetComponentInParent<Transform>().position = this.transform.position;
         GameObject.FindWithTag("MainCamera").transform.position = this.transform.position;
     }
 }

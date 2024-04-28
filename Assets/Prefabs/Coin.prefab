@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6180928248059488017}
   - component: {fileID: 8994755866131804581}
   - component: {fileID: 775533948222807412}
+  - component: {fileID: 4779709819613098130}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -93,7 +94,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2306329224490474149}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -128,9 +129,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2306329224490474149}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53d638c96440b1f43bb864dba0acf07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asSpawned: 0
+  spawningCounter: 0
   spawningLenght: 3
+--- !u!114 &4779709819613098130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306329224490474149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000bdeccf028aba4185f572dd4bb9d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  moveSpeed: 25
+  inventory: {fileID: 0}
