@@ -82,13 +82,5 @@ public class Projectile_Behavior : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Projectile_Trigger"))
-        {
-            Debug.Log("IN");
-            collision.GetComponent<Projectile_Trigger>().Activate();
-            Destroy(gameObject);
-        }
-    }
+
 }

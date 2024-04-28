@@ -5,7 +5,7 @@ using UnityEngine.WSA;
 
 public class Projectile_Trigger : MonoBehaviour
 {
-    private bool activated;
+    public bool activated;
 
     public GameObject[] doors;
 
@@ -27,10 +27,22 @@ public class Projectile_Trigger : MonoBehaviour
                 item.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
+
+        /// Debug thing ///
+
+        if(Input.GetKeyUp(KeyCode.V))
+        {
+            activated = true;
+        }
+
+        /// Debug thing ///
     }
 
-    public void Activate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        Debug.Log("IN");
         activated = true;
+
     }
 }
